@@ -1,5 +1,6 @@
-import getCurrentUser from "./actions/getCurrentUser";
-import getListings, { IListingParams } from "./actions/getListings";
+export const dynamic = "force-dynamic"
+import getCurrentUser from "@/app/actions/getCurrentUser";
+import getListings, { IListingParams } from "@/app/actions/getListings";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
@@ -23,7 +24,7 @@ const Home = async({searchParams} : HomeProps) => {
     <ClientOnly>
       <Container>
         <div className="pt-24 grid gird-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
-          {listings.map((listing) => (
+          {listings.map((listing:any) => (
             <ListingCard 
               currentUser={currentUser}
               key={listing.id}
